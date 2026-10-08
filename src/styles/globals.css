@@ -1,0 +1,87 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-hanken-grotesk), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-instrument-serif), ui-serif, Georgia, serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+
+  --color-parchment: #f6f0e4;
+  --color-vellum: #eee5d3;
+  --color-ink: #1e1a16;
+  --color-body: #4d463e;
+  --color-muted: #6e665c;
+  --color-line: #e4d9c6;
+  --color-line-strong: #cdbfa7;
+  --color-oxblood: #7a2e2a;
+  --color-terracotta: #a8492b;
+  --color-gold: #b08d57;
+  --color-blush: #e9cfc0;
+  --color-mist: #c9bfb0;
+
+  --ease-editorial: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --ease-pop: cubic-bezier(0.2, 0.8, 0.2, 1);
+
+  --animate-spin-slow: spin 28s linear infinite;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 96px;
+  }
+
+  body {
+    @apply bg-parchment text-ink font-sans antialiased;
+    font-size: 17px;
+    line-height: 1.6;
+  }
+
+  ::selection {
+    background: var(--color-blush);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-oxblood);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@utility link-underline {
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset-inline: 0;
+    bottom: -3px;
+    height: 1px;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.5s var(--ease-editorial);
+  }
+
+  &:hover::after {
+    transform: scaleX(1);
+  }
+}
+
+/* Engraved paper grain: an SVG noise tile, not a gradient. */
+@utility paper-grain {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .12 0 0 0 0 .1 0 0 0 0 .08 0 0 0 .06 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
