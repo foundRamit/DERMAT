@@ -37,19 +37,19 @@ export function ClinicDay() {
     >
       <div className="mx-auto max-w-[1400px] px-5 pt-[clamp(72px,9vw,128px)] pb-[clamp(80px,10vw,150px)] md:px-12">
         <p className="text-terracotta mb-6 font-mono text-[11px] tracking-[0.18em] uppercase">
-          01 — The clinic day
+          01 · A day at your clinic
         </p>
         <h2
           id="day-title"
           className="max-w-[1100px] font-serif text-[clamp(44px,5.6vw,84px)] leading-[0.98] font-normal tracking-[-0.01em] text-balance"
         >
-          Six moments of every visit{" "}
+          Every step of a patient’s visit{" "}
           <span className="hidden whitespace-nowrap sm:inline">
             <span className="text-muted font-light">(</span>
             <CoinStack />
             <span className="text-muted font-light">)</span>
           </span>{" "}
-          held in one calm system.
+          in one place.
         </h2>
 
         <div
@@ -144,7 +144,7 @@ export function ClinicDay() {
               }}
             />
             <p className="text-muted mt-5 font-mono text-[11px] tracking-[0.08em]">
-              Each dot is a patient moving through the day.
+              Each dot is a patient moving through your clinic.
             </p>
           </div>
         </div>

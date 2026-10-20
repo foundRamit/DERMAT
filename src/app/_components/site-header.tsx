@@ -3,10 +3,11 @@
 import { ArrowUpRight, List, X } from "@phosphor-icons/react";
 import { AnimatePresence, useMotionValueEvent, useScroll } from "motion/react";
 import * as m from "motion/react-m";
+import Link from "next/link";
 import { useState } from "react";
 
 const links = [
-  { href: "#day", label: "The day" },
+  { href: "#day", label: "How it works" },
   { href: "#treatments", label: "Treatments" },
   { href: "#billing", label: "Billing" },
 ];
@@ -56,17 +57,17 @@ export function SiteHeader() {
               {link.label}
             </a>
           ))}
-          <a
-            href="#demo"
+          <Link
+            href="/demo"
             className="group bg-ink text-parchment hover:bg-oxblood inline-flex h-10 items-center gap-2 rounded-full pr-3 pl-4 text-[14px] font-medium transition-colors duration-300"
           >
-            Book a demo
+            Try the demo
             <ArrowUpRight
               size={15}
               aria-hidden
               className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
             />
-          </a>
+          </Link>
         </div>
 
         <button
@@ -100,13 +101,12 @@ export function SiteHeader() {
                 {link.label}
               </a>
             ))}
-            <a
-              href="#demo"
-              onClick={() => setOpen(false)}
+            <Link
+              href="/demo"
               className="text-oxblood py-3.5 font-serif text-[28px] leading-tight"
             >
-              Book a demo
-            </a>
+              Try the demo
+            </Link>
           </m.div>
         )}
       </AnimatePresence>

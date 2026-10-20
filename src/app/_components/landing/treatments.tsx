@@ -14,16 +14,16 @@ import { images } from "./content";
 
 const points = [
   {
-    title: "Courses of treatment",
-    text: "Plan treatments that run across several sessions and visits.",
+    title: "Treatment packages",
+    text: "Sell a package of sessions and see how many are used and how many are left.",
   },
   {
-    title: "Procedure tracking",
-    text: "A careful record of each procedure as it is performed.",
+    title: "Session records",
+    text: "Note what was done at each sitting, by whom, and on which machine.",
   },
   {
-    title: "Staff coordination",
-    text: "Doctors, therapists and the front desk working from the same picture of the day.",
+    title: "Your team on the same page",
+    text: "Doctors, therapists and the front desk all see the same list of today’s patients.",
   },
 ];
 
@@ -72,19 +72,19 @@ export function Treatments() {
 
         <div>
           <p className="text-terracotta mb-6 font-mono text-[11px] tracking-[0.18em] uppercase">
-            02 — Treatments
+            02 · Treatments
           </p>
           <h2
             id="treatments-title"
             className="font-serif text-[clamp(44px,5.6vw,84px)] leading-[0.98] font-normal tracking-[-0.01em] text-balance"
           >
-            Organised treatment,{" "}
-            <em className="text-oxblood">session after session.</em>
+            Keep track of every treatment,{" "}
+            <em className="text-oxblood">session by session.</em>
           </h2>
           <p className="text-body mt-6">
-            Cosmetic and procedural care rarely ends in a single visit. Dermat
-            keeps courses of treatment, the procedures within them, and the
-            people delivering them in step.
+            Laser, peels and PRP usually take several sittings. See which
+            session each patient is on, how many are left, and when they are due
+            back.
           </p>
           <m.ul
             className="border-line-strong mt-10 border-t"

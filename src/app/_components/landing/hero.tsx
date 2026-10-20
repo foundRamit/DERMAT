@@ -10,9 +10,12 @@ import {
 } from "motion/react";
 import * as m from "motion/react-m";
 import Image from "next/image";
+import Link from "next/link";
 import { useId, useRef } from "react";
 
 import { images, steps } from "./content";
+
+const MotionLink = m.create(Link);
 
 const arcWords = Array.from({ length: 3 }, () =>
   steps.map((s) => s.title.toUpperCase()).join("  ·  "),
@@ -58,43 +61,42 @@ export function Hero() {
         className="relative z-10 mx-auto w-full max-w-[1400px] px-5 pt-28 pb-12 md:px-12 md:pt-[clamp(132px,17vh,180px)] md:pb-0"
       >
         <p className="text-terracotta mb-6 font-mono text-[11px] tracking-[0.18em] uppercase md:mb-8">
-          Clinic management for dermatology
+          Software for skin and hair clinics
         </p>
 
         <h1
           id="hero-title"
-          className="font-serif text-[clamp(76px,10.4vw,164px)] leading-[0.86] font-normal tracking-[-0.015em]"
+          className="font-serif text-[clamp(56px,7.6vw,120px)] leading-[0.92] font-normal tracking-[-0.015em]"
         >
-          <span className="flex flex-wrap items-center gap-x-[0.12em]">
-            Well
-            <ParenAside />
-          </span>
+          <span className="block">Your clinic,</span>
           <span className="block">
-            kept<span className="text-oxblood">.</span>
+            in one place<span className="text-oxblood">.</span>
           </span>
         </h1>
 
-        <p className="text-body mt-6 max-w-[340px] font-serif text-[22px] leading-snug italic xl:hidden">
-          Intake to invoice — the whole clinic day, in one calm system.
+        <p className="text-body mt-6 max-w-[460px] font-serif text-[22px] leading-snug italic md:text-[26px]">
+          Appointments, waiting line, prescriptions, treatment sessions and
+          bills.
         </p>
 
         <div className="mt-10 flex flex-wrap items-center gap-6 md:mt-12">
-          <a
-            href="#demo"
+          <Link
+            href="/demo"
+            data-testid="hero-try-demo"
             className="group bg-ink text-parchment hover:bg-oxblood inline-flex h-[52px] items-center gap-3 rounded-full pr-5 pl-6 font-medium transition-colors duration-300"
           >
-            Book a demo
+            Try the demo
             <ArrowUpRight
               size={16}
               aria-hidden
               className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
             />
-          </a>
+          </Link>
           <a
             href="#day"
             className="link-underline hover:text-oxblood font-medium transition-colors"
           >
-            Watch the day move
+            See how it works
           </a>
         </div>
       </m.div>
@@ -102,50 +104,6 @@ export function Hero() {
       <HeroArc progress={scrollYProgress} />
       <MagneticBadge />
     </section>
-  );
-}
-
-/** ( small aside ) set between giant serif parentheses, which spring open on load. */
-function ParenAside() {
-  const paren = {
-    hidden: { scaleY: 0.4, opacity: 0 },
-    shown: {
-      scaleY: 1,
-      opacity: 1,
-      transition: { type: "spring" as const, bounce: 0.5, duration: 0.8 },
-    },
-  };
-
-  return (
-    <m.span
-      className="hidden items-center xl:inline-flex"
-      initial="hidden"
-      animate="shown"
-      transition={{ delayChildren: 0.25, staggerChildren: 0.12 }}
-    >
-      <m.span
-        variants={paren}
-        className="text-muted inline-block origin-center font-light"
-      >
-        (
-      </m.span>
-      <m.span
-        variants={{
-          hidden: { opacity: 0, y: 8 },
-          shown: { opacity: 1, y: 0, transition: { duration: 0.6 } },
-        }}
-        className="text-body mx-[0.18em] inline-block max-w-[230px] font-sans text-[15px] leading-[1.45] font-medium tracking-normal"
-      >
-        Intake to invoice — the whole dermatology clinic day, in one calm
-        system.
-      </m.span>
-      <m.span
-        variants={paren}
-        className="text-muted inline-block origin-center font-light"
-      >
-        )
-      </m.span>
-    </m.span>
   );
 }
 
@@ -193,7 +151,7 @@ function HeroArc({
   );
 }
 
-/** Round "Book a demo" seal with a slowly turning ring of text and a magnetic pull. */
+/** Round "Try the demo" seal with a slowly turning ring of text and a magnetic pull. */
 function MagneticBadge() {
   const id = useId().replace(/:/g, "");
   const reduce = useReducedMotion();
@@ -201,9 +159,9 @@ function MagneticBadge() {
   const y = useSpring(0, { stiffness: 220, damping: 18 });
 
   return (
-    <m.a
-      href="#demo"
-      aria-label="Book a demo"
+    <MotionLink
+      href="/demo"
+      aria-label="Try the demo"
       data-testid="hero-badge"
       style={{ x, y }}
       onPointerMove={(e) => {
@@ -239,7 +197,7 @@ function MagneticBadge() {
           style={{ fontSize: 10.5, letterSpacing: 3.2 }}
         >
           <textPath href={`#ring-${id}`}>
-            BOOK A DEMO · SEE THE CLINIC DAY · BOOK A DEMO · SEE THE CLINIC DAY
+            TRY THE DEMO · NO SIGN-UP NEEDED · TRY THE DEMO · NO SIGN-UP NEEDED
             ·
           </textPath>
         </text>
@@ -247,6 +205,6 @@ function MagneticBadge() {
       <span className="bg-ink text-parchment relative inline-flex size-12 items-center justify-center rounded-full">
         <ArrowUpRight size={20} aria-hidden />
       </span>
-    </m.a>
+    </MotionLink>
   );
 }

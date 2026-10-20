@@ -14,11 +14,11 @@ const LINE = "#CDBFA7";
 const PAPER = "#F6F0E4";
 
 const STATIONS = [
-  "Intake",
-  "Waiting room",
+  "Registration",
+  "Waiting line",
   "Consultation",
-  "Cosmetic treatment",
-  "Procedure tracking",
+  "Skin treatments",
+  "Treatment sessions",
   "Billing",
 ] as const;
 

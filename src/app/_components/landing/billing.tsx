@@ -3,7 +3,7 @@
 import { Check } from "@phosphor-icons/react";
 import * as m from "motion/react-m";
 
-const lines = ["Consultation", "Cosmetic procedure", "Treatment session"];
+const lines = ["Consultation fee", "Laser session", "Chemical peel"];
 
 export function Billing() {
   return (
@@ -15,19 +15,19 @@ export function Billing() {
       <div className="mx-auto grid max-w-[1400px] items-start gap-16 px-5 py-[clamp(80px,10vw,150px)] md:px-12 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)]">
         <div>
           <p className="text-terracotta mb-6 font-mono text-[11px] tracking-[0.18em] uppercase">
-            03 — Billing
+            03 · Billing
           </p>
           <h2
             id="billing-title"
             className="font-serif text-[clamp(44px,5.6vw,84px)] leading-[0.98] font-normal tracking-[-0.015em] text-balance"
           >
-            From the front desk to the final invoice
+            Bill every visit before the patient leaves
             <span className="text-oxblood">.</span>
           </h2>
           <p className="text-body mt-8 max-w-[520px] text-lg">
-            Billing closes the visit in the same system that opened it —
-            consultations and cosmetic procedures alike, without a second place
-            to reconcile.
+            Consultation fees and treatment charges go on one bill. Take cash,
+            UPI or card, give approved discounts, and see who still owes you
+            money.
           </p>
         </div>
 

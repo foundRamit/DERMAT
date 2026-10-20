@@ -3,12 +3,10 @@ import "@/styles/globals.css";
 import type { Metadata } from "next";
 import { Geist_Mono, Hanken_Grotesk, Instrument_Serif } from "next/font/google";
 
-import { TRPCReactProvider } from "@/trpc/react";
-
 export const metadata: Metadata = {
-  title: "Dermat — Clinic management for dermatology",
+  title: "Dermat | Software for skin and hair clinics",
   description:
-    "Patient intake, the waiting room, consultations, cosmetic treatments, procedure tracking and billing — in one calm system built for dermatology practices.",
+    "Book appointments, manage the waiting line, write prescriptions, track treatment sessions and collect payments. Everything your skin clinic does in a day, in one place.",
   icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
 
@@ -37,9 +35,7 @@ export default function RootLayout({
       lang="en"
       className={`${hankenGrotesk.variable} ${instrumentSerif.variable} ${geistMono.variable}`}
     >
-      <body>
-        <TRPCReactProvider>{children}</TRPCReactProvider>
-      </body>
+      <body>{children}</body>
     </html>
   );
 }
